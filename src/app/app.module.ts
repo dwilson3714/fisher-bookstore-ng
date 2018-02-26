@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { BooksComponent } from './books/books.component';
@@ -12,6 +12,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FooterComponent } from './footer/footer.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AppRouterModule } from './router/router.module';
+import { BooksService } from './books/books.service';
 
 
 @NgModule({
@@ -28,9 +29,12 @@ import { AppRouterModule } from './router/router.module';
 
   
   imports: [
-    BrowserModule, FormsModule, AppRouterModule
+    BrowserModule, 
+    FormsModule, 
+    AppRouterModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [BooksService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
